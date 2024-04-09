@@ -63,6 +63,15 @@ spec:
       protocol: TCP
       targetPort: rtsp
       {{/* TODO: think of making the nodePort ability available, the rtmp solution from above would not work as you can't use the same port multiple times */}}
+    - name: webrtc
+      port: 8555
+      protocl: TCP
+      targetPort: webrtc
+    - name: webrtc-udp
+      port: 8555
+      protocl: UDP
+      targetPort: 8555
+      {{/* TODO: think of making the nodePort ability available, the rtmp solution from above would not work as you can't use the same port multiple times */}}
   selector:
     app.kubernetes.io/name: {{ include "frigate.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
